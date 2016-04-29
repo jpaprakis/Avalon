@@ -12,5 +12,7 @@ public class Minion : Card {
 		this.setSpecial ("");
 
 		this.setImg ("");
+
+		this.setOtherCards ("Other Minions of Mordred Visisble to You");
 	}
 }

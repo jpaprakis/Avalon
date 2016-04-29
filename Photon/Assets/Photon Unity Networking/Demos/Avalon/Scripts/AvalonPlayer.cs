@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class AvalonPlayer : Photon.MonoBehaviour {
 	private string numPlayers = "5";
+	private bool playerCardFaceUp = true;
+	private bool otherCardsFaceUp = false;
 
 	void Start() {
 		
@@ -41,19 +43,23 @@ public class AvalonPlayer : Photon.MonoBehaviour {
 		//Ready to play the game!
 		} else if ((GameSettings.entered_players) && (PhotonNetwork.playerList.Length == GameSettings.num_players) && (GameSettings.dealt)) {
 			if (photonView.isMine) {
-				string cardLabel = "Your Card: " + GameSettings.playerRole;
-				GUILayout.Label (cardLabel);
+				if (playerCardFaceUp) {
+					string cardLabel = "Your Card: " + GameSettings.playerRole;
+					GUILayout.Label (cardLabel);
+				}
 
 				string otherLabel = "Other cards you can see: ";
 
-				if (GameSettings.known_cards != null) {
-					for (int i = 0; i < GameSettings.known_cards.Length; i++) {
-						string cardstr = GameSettings.known_cards [i] + ",";
-						otherLabel += cardstr;
+				if (otherCardsFaceUp) {
+					if (GameSettings.known_cards != null) {
+						for (int i = 0; i < GameSettings.known_cards.Length; i++) {
+							string cardstr = GameSettings.known_cards [i] + ",";
+							otherLabel += cardstr;
+						}
+						GUILayout.Label (otherLabel);
+					} else {
+						GUILayout.Label ("no other known cards");
 					}
-					GUILayout.Label (otherLabel);
-				} else {
-					GUILayout.Label ("no other known cards");
 				}
 			}
 		}

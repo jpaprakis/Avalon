@@ -23,18 +23,18 @@ public class AvalonNetworkManager : MonoBehaviour {
 
 		else if (PhotonNetwork.room == null)
 		{
-			GUILayout.Label ("Name:");
+			GUI.Label (new Rect(100, 30, 100, 20), "Name:");
 			playerName = GUI.TextArea(new Rect (100, 50, 250, 50), playerName, 30);
-			// Create Room
-			GUILayout.Label ("Create a Room:");
+			// Create Roo
+			GUI.Label (new Rect(100, 130, 100, 20), "Create a Room:");
 			roomName = GUI.TextArea (new Rect (100, 150, 250, 50), roomName, 30);
 			if (GUI.Button(new Rect(100, 200, 250, 100), "Create Room"))
 				PhotonNetwork.CreateRoom(roomName);
 
 			// Join Room
-			GUILayout.Label ("Join a Room:");
 			if (roomsList != null)
 			{
+				GUI.Label (new Rect(100, 330, 100, 20), "Join a Room:");
 				for (int i = 0; i < roomsList.Length; i++)
 				{
 					if (GUI.Button(new Rect(100, 350 + (110 * i), 250, 100), "Join " + roomsList[i].name))

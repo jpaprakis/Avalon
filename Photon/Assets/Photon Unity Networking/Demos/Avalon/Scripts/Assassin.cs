@@ -12,5 +12,7 @@ public class Assassin : Card {
 		this.setSpecial ("Assassinates one player who they think is Merlin at the end of the game");
 
 		this.setImg ("");
+
+		this.setOtherCards ("Other Minions of Mordred Visisble to You");
 	}
 }

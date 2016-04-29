@@ -12,5 +12,7 @@ public class Merlin : Card {
 		this.setSpecial ("Knows who the evil people are");
 
 		this.setImg ("");
+
+		this.setOtherCards ("Minions of Mordred Visisble to You");
 	}
 }
